@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Stand By Me</string>
+    <string name="title_activity_dummy_home">DummyHome</string>
+    <string name="title_activity_make_phone_call">MakePhoneCall</string>
 </resources>
