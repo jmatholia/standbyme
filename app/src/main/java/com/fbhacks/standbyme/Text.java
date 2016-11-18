@@ -85,7 +85,8 @@ public class Text extends Activity implements TextToSpeech.OnInitListener{
                 Log.e("TTS", "This Language is not supported");
             } else {
                 //btnSpeak.setEnabled(true);
-                speakOut("Hello!, how are ya?... I'm great, thank you!... wow that's great... when are you getting home... ok I've made food... No problem!...");}
+                speakOut("Hello!, how are you?");
+            }
         } else {
             Log.e("TTS", "Initilization Failed!");
         }
