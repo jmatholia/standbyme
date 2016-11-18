@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.facebook.FacebookCallback;
 import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.SendButton;
@@ -87,7 +88,10 @@ public class GeoLocation extends Activity {
             /*SendButton sendButton = (SendButton)findViewById(R.id.fb_send_button);
             sendButton.setShareContent(content);
             sendButton.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() { ... });
-*/
+*
+            /*SendButton sendButton = (SendButton)findViewById(R.id.fb_send_button);
+            sendButton.setShareContent(content);
+            sendButton.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() { ... });*/
 
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
