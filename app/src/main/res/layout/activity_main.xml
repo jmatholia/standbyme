@@ -19,7 +19,7 @@
         android:typeface="sans"
         android:textColor="#FFFFFF"
         android:gravity="center"
-        android:textSize="65dp"
+        android:textSize="50dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"
@@ -32,8 +32,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@mipmap/ecology"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/textview1"
+        android:layout_centerHorizontal="true" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        />
 
 </RelativeLayout>
