@@ -2,10 +2,12 @@ package com.fbhacks.standbyme;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
@@ -13,9 +15,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.facebook.share.Sharer;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.SendButton;
+import com.facebook.messenger.MessengerUtils;
+import com.facebook.messenger.MessengerThreadParams;
+import com.facebook.messenger.ShareToMessengerParams;
+
 public class GeoLocation extends Activity {
 
-    private LocationManager locationManagaer = null;
+    private LocationManager locationManager = null;
     private LocationListener locationListener = null;
     String locationProvider = LocationManager.GPS_PROVIDER;
     public static final int MY_PERMISSIONS_REQUEST_COARSE_LOC_PERM = 2;
@@ -34,12 +43,11 @@ public class GeoLocation extends Activity {
         setContentView(R.layout.activity_geo_location);
 
         // Acquire a reference to the system Location Manager
-        locationManagaer = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         Log.d(TAG, "Starting Location");
                 // Or use LocationManager.GPS_PROVIDER
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION},
                     MY_PERMISSIONS_REQUEST_COARSE_LOC_PERM);
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
@@ -62,18 +70,64 @@ public class GeoLocation extends Activity {
         };
 
         sendLocation();
-
-        // Register the listener with the Location Manager to receive location updates
-        // locationManager.requestLocationUpdates(locationProvider, 0, 0, locationListener);
-//        locationManagaer.requestLocationUpdates(LocationManager
-//                .GPS_PROVIDER, 5000, 10, locationListener);
-
     }
 
     public Location sendLocation() throws SecurityException{
-        android.location.Location lastKnownLocation = locationManagaer.getLastKnownLocation(locationProvider);
-        Log.d(TAG, "Lat: " + lastKnownLocation.getLatitude() + " Long: " + lastKnownLocation.getLongitude());
+        // android.location.Location lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
+        android.location.Location lastKnownLocation = getLocation();
+        String location = "";
+        if (lastKnownLocation != null) {
+            location = "http://www.google.com/maps/place/" + lastKnownLocation.getLatitude() + "," + lastKnownLocation.getLongitude();
+            Log.d(TAG, location);
+
+            // Pull up messenger
+            ShareLinkContent content = new ShareLinkContent.Builder()
+                    .setContentUrl(Uri.parse(location))
+                    .build();
+            /*SendButton sendButton = (SendButton)findViewById(R.id.fb_send_button);
+            sendButton.setShareContent(content);
+            sendButton.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() { ... });
+*/
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent
+                    .putExtra(Intent.EXTRA_TEXT, location);
+            sendIntent.setType("text/plain");
+            sendIntent.setPackage("com.facebook.orca");
+
+            // -----------------
+            try {
+                startActivity(sendIntent);
+            }
+            catch (android.content.ActivityNotFoundException ex) {
+                Log.d(TAG, "Couldn't send message!");
+            }
+        } else {
+            Log.d(TAG, "No location found");
+        }
         return lastKnownLocation;
+    }
+
+    public Location getLocation() throws SecurityException {
+        Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        Location locationNet = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+        long GPSLocationTime = 0;
+        if (null != locationGPS) { GPSLocationTime = locationGPS.getTime(); }
+
+        long NetLocationTime = 0;
+
+        if (null != locationNet) {
+            NetLocationTime = locationNet.getTime();
+        }
+
+        if ( 0 < GPSLocationTime - NetLocationTime ) {
+            return locationGPS;
+        }
+        else {
+            return locationNet;
+        }
     }
 
     @Override
