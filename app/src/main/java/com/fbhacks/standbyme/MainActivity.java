@@ -100,4 +100,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);*/
     }
+    public void nextpage (View view){
+        Intent intent = new Intent (this, Confirmation.class);
+        startActivity(intent);
+    }
+
 }
