@@ -40,8 +40,8 @@ public class DummyHome extends AppCompatActivity {
         parita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            Intent goToNextActivity = new Intent(getApplicationContext(), Text.class);
+            startActivity(goToNextActivity);
             }
         });
 
@@ -50,6 +50,16 @@ public class DummyHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goToNextActivity = new Intent(getApplicationContext(), GeoLocation.class);
+                startActivity(goToNextActivity);
+            }
+        });
+
+
+        Button Ringtone = (Button) findViewById(R.id.button6);
+        Ringtone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToNextActivity = new Intent(getApplicationContext(), Ringtone.class);
                 startActivity(goToNextActivity);
             }
         });
