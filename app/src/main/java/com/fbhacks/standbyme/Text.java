@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -84,17 +85,25 @@ public class Text extends Activity implements TextToSpeech.OnInitListener{
                 Log.e("TTS", "This Language is not supported");
             } else {
                 //btnSpeak.setEnabled(true);
-                speakOut("Hello!, how are ya? hope you are doing alright");}
-
+                speakOut("Hello!, how are ya?.... I'm great, thank you!.... wow that's great.... when are you getting home.... ok I've made food.... No problem!....");}
         } else {
             Log.e("TTS", "Initilization Failed!");
         }
 
     }
 
+
     private void speakOut(String text) {
 
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         int speech = tts.setSpeechRate((float) 0.7);
+    }
+    public void emergency (View view){
+        Intent intent = new Intent (this, MakePhoneCall.class);
+        startActivity(intent);
+    }
+    public void ending (View view){
+        Intent intent = new Intent (this, safe.class);
+        startActivity(intent);
     }
 }
