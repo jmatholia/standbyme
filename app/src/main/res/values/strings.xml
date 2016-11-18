@@ -3,6 +3,10 @@
     <string name="title_activity_dummy_home">DummyHome</string>
     <string name="title_activity_make_phone_call">MakePhoneCall</string>
     <string name="title_activity_geo_location">GeoLocation</string>
+    <string name="title_activity_speech">Speech</string>
+    <string name="title_activity_txt_speech">TxtSpeech</string>
+    <string name="title_activity_text">Text</string>
+    <string name="title_activity_ringtone">Ringtone</string>
     <string name="facebook_app_id">130687267412688</string>
     <string name="fb_login_protocol_scheme">fb130687267412688</string>
     <string name="button_send" />
