@@ -85,7 +85,7 @@ public class Text extends Activity implements TextToSpeech.OnInitListener{
                 Log.e("TTS", "This Language is not supported");
             } else {
                 //btnSpeak.setEnabled(true);
-                speakOut("Hello!, how are ya?.... I'm great, thank you!.... wow that's great.... when are you getting home.... ok I've made food.... No problem!....");}
+                speakOut("Hello!, how are ya?... I'm great, thank you!... wow that's great... when are you getting home... ok I've made food... No problem!...");}
         } else {
             Log.e("TTS", "Initilization Failed!");
         }
@@ -98,12 +98,13 @@ public class Text extends Activity implements TextToSpeech.OnInitListener{
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         int speech = tts.setSpeechRate((float) 0.7);
     }
-    public void emergency (View view){
-        Intent intent = new Intent (this, MakePhoneCall.class);
+    public void voicedetect (View view){
+        Intent intent = new Intent (this, SpeechText.class);
         startActivity(intent);
     }
     public void ending (View view){
         Intent intent = new Intent (this, safe.class);
         startActivity(intent);
     }
+
 }
