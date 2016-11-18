@@ -36,26 +36,13 @@
         android:layout_below="@+id/textview1"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Continue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:id="@+id/button5"
-        android:layout_below="@+id/login_button"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="#FFFF"
-        android:layout_centerHorizontal="true"
-        android:onClick="nextpage"
-        />
-
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/phone_icon"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>
