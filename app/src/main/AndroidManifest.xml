@@ -27,4 +27,7 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
+    <!-- OUR PERMISSIONS -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 </manifest>
