@@ -85,10 +85,14 @@ public class SpeechText extends Activity {
                     Log.d("Text: ", text);
                     if(("mom").equals(text)) {
                         Log.d("Text: ", "EMERGENCY");
+                        Intent goToNextActivity = new Intent(getApplicationContext(), MakePhoneCall.class);
+                        startActivity(goToNextActivity);
                     }
                     else if(("dad").equals(text)){
                         //facebook messenger location goes to your friends
                         Log.d("Text: ", "FRIENDS");
+                        Intent goToNextActivity = new Intent(getApplicationContext(), GeoLocation.class);
+                        startActivity(goToNextActivity);
                     }
 
                 }
