@@ -7,4 +7,8 @@
     <string name="title_activity_txt_speech">TxtSpeech</string>
     <string name="title_activity_text">Text</string>
     <string name="title_activity_ringtone">Ringtone</string>
+    <string name="facebook_app_id">130687267412688</string>
+    <string name="fb_login_protocol_scheme">fb130687267412688</string>
+    <string name="button_send" />
+    <string name="title_activity_confirmation">Confirmation</string>
 </resources>
