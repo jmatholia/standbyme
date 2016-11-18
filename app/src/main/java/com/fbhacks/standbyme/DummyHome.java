@@ -64,11 +64,13 @@ public class DummyHome extends AppCompatActivity {
             }
         });
 
-        Button jahnavi = (Button) findViewById(R.id.button4);
-        jahnavi.setOnClickListener(new View.OnClickListener() {
+
+
+        Button SReco = (Button) findViewById(R.id.button7);
+        SReco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToNextActivity = new Intent(getApplicationContext(), MakePhoneCall.class);
+                Intent goToNextActivity = new Intent(getApplicationContext(), SpeechText.class);
                 startActivity(goToNextActivity);
             }
         });
