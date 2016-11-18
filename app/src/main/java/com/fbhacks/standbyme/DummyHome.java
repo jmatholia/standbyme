@@ -40,8 +40,8 @@ public class DummyHome extends AppCompatActivity {
         parita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            Intent goToNextActivity = new Intent(getApplicationContext(), Text.class);
+            startActivity(goToNextActivity);
             }
         });
 
@@ -49,16 +49,28 @@ public class DummyHome extends AppCompatActivity {
         vruti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent goToNextActivity = new Intent(getApplicationContext(), GeoLocation.class);
+                startActivity(goToNextActivity);
             }
         });
 
-        Button jahnavi = (Button) findViewById(R.id.button4);
-        jahnavi.setOnClickListener(new View.OnClickListener() {
+
+        Button Ringtone = (Button) findViewById(R.id.button6);
+        Ringtone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToNextActivity = new Intent(getApplicationContext(), MakePhoneCall.class);
+                Intent goToNextActivity = new Intent(getApplicationContext(), Ringtone.class);
+                startActivity(goToNextActivity);
+            }
+        });
+
+
+
+        Button SReco = (Button) findViewById(R.id.button7);
+        SReco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToNextActivity = new Intent(getApplicationContext(), SpeechText.class);
                 startActivity(goToNextActivity);
             }
         });
