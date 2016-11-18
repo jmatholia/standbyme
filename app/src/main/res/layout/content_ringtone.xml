@@ -17,8 +17,8 @@
         android:text="Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="147dp"
-        android:id="@+id/button5" />
+        android:background="@color/colorBlack"
+        android:id="@+id/button5"
+        android:layout_marginBottom="137dp"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

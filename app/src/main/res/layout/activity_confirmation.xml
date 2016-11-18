@@ -77,7 +77,7 @@
         android:id="@+id/toggleButton"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="startcall"
+        android:onClick="callstarter"
         />
 
 </RelativeLayout>

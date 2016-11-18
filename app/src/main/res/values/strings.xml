@@ -11,4 +11,10 @@
     <string name="fb_login_protocol_scheme">fb130687267412688</string>
     <string name="button_send" />
     <string name="title_activity_confirmation">Confirmation</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_safe">safe</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.fbhacks.standbyme;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,7 +27,10 @@ public class Ringtone extends Activity {
         });
     }
 
-
+    public void playcall (View view){
+        Intent intent = new Intent (this, Text.class);
+        startActivity(intent);
+    }
 
 
 }

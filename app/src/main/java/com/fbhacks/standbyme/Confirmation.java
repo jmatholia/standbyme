@@ -26,8 +26,8 @@ public class Confirmation extends AppCompatActivity {
             }
         });*/
     }
-    public void startcall (View view){
-        Intent intent = new Intent (this, CallingScreen.class);
+    public void callstarter(View view){
+        Intent intent = new Intent (this, Ringtone.class);
         startActivity(intent);
     }
 
