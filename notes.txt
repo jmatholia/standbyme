@@ -1,0 +1,9 @@
+cd "C:\Android\sdk\platform-tools"
+./adb.exe connect 192.168.2.23:5555
+
+
+sk.eyJ1Ijoiam1hdGhvbGlhIiwiYSI6ImNpdmZmcHR3ajAwdHQyeWxidTRlcmg0cjMifQ.XCRrRxSIQO_pcTt8Ll0_8Q
+
+https://www.mapbox.com/help/first-steps-android-sdk/#mapbox-studio-classic
+https://www.mapbox.com/android-sdk/examples/directions/
+File > New > Image Assets > select launcher icon > choose image file.
